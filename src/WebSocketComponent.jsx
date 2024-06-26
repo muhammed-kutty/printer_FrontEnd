@@ -7,7 +7,7 @@ const WebSocketComponent = () => {
   useEffect(() => {
     // Create a WebSocket connection
     socket = new WebSocket('wss://192.168.1.2:3002', {
-      rejectUnauthorized: false, // This option might be needed based on your certificate setup
+      // rejectUnauthorized: false, // This option might be needed based on your certificate setup
     });
 
     // Connection opened
