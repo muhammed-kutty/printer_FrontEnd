@@ -46,9 +46,7 @@ const WebSocketComponent = () => {
 
   const connect = ()=>{
         // Create a WebSocket connection
-        socket = new WebSocket('wss://192.168.1.2:3002', {
-          // rejectUnauthorized: false, // This option might be needed based on your certificate setup
-        });
+        socket = new WebSocket('wss://192.168.1.2:3002');
     
         // Connection opened
         socket.addEventListener('open', () => {
