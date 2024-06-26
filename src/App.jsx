@@ -7,7 +7,7 @@ function App() {
 
   const handlePrint = async () => {
       try {
-          const response = await axios.post("https://192.168.1.2:3002/print");
+          const response = await axios.post("http://192.168.1.2:3002/print");
           alert(response.data);
       } catch (error) {
           console.error('Error printing:', error);
