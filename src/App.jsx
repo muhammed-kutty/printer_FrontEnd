@@ -22,7 +22,7 @@ function App() {
       //     <button onClick={handlePrint}>Print</button>
       // </div>
 
-      <WebSocketComponent />
+      <WebSocketComponent/>
   );
 }
 

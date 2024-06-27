@@ -1,87 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import axios from 'axios'
 
 const WebSocketComponent = () => {
-  const [messages, setMessages] = useState([]);
-  let socket;
+  const [message, setMessage] = useState('');
 
-  // useEffect(() => {
-  //   // Create a WebSocket connection
-  //   socket = new WebSocket('wss://192.168.1.2:3002', {
-  //     // rejectUnauthorized: false, // This option might be needed based on your certificate setup
-  //   });
+  const handlePrint = async () => {
+    try {
+      const response = await axios.post('https://printrerrr-main.onrender.com/print');
 
-  //   // Connection opened
-  //   socket.addEventListener('open', () => {
-  //     console.log('Connected to Secure WebSocket server');
-  //   });
-
-  //   // Listen for messages
-  //   socket.addEventListener('message', event => {
-  //     setMessages(prevMessages => [...prevMessages, event.data]);
-  //   });
-
-  //   // Handle connection errors
-  //   socket.addEventListener('error', error => {
-  //     console.error('WebSocket error:', error);
-  //   });
-
-  //   // Handle connection close
-  //   socket.addEventListener('close', () => {
-  //     console.log('WebSocket connection closed');
-  //   });
-
-  //   // Cleanup on unmount
-  //   return () => {
-  //     socket.close();
-  //   };
-  // }, []);
-
-  const sendPrintCommand = () => {
-    if (socket.readyState === WebSocket.OPEN) {
-      socket.send('print');
-    } else {
-      console.error('WebSocket is not open');
+      const result = await response.data;
+      console.log('Response from server:', result);
+    } catch (error) {
+      console.error('Error sending print request:', error);
     }
   };
 
-  const connect = ()=>{
-        // Create a WebSocket connection
-        socket = new WebSocket('wss://192.168.1.2:3002');
-    
-        // Connection opened
-        socket.addEventListener('open', () => {
-          console.log('Connected to Secure WebSocket server');
-        });
-    
-        // Listen for messages
-        socket.addEventListener('message', event => {
-          setMessages(prevMessages => [...prevMessages, event.data]);
-        });
-    
-        // Handle connection errors
-        socket.addEventListener('error', error => {
-          console.error('WebSocket error:', error);
-        });
-    
-        // Handle connection close
-        socket.addEventListener('close', () => {
-          console.log('WebSocket connection closed');
-        });
-    
-  }
-
   return (
     <div>
-      <h1>Secure WebSocket Communication</h1>
-      <ul>
-        {messages.map((msg, index) => (
-          <li key={index}>{msg}</li>
-        ))}
-      </ul>
-      <button onClick={connect}>Connect</button>
-
-      <button onClick={sendPrintCommand}>Print</button>
-
+      <button onClick={handlePrint}>Print Data</button>
     </div>
   );
 };
