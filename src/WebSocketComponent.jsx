@@ -12,7 +12,7 @@ const WebSocketComponent = () => {
     const token =localStorage.getItem('user_token')
     const serverID = localStorage.getItem('serverID')
   
-  const url = "http://192.168.1.3:3002"
+  const url = " https://mycustomsubdomain.loca.lt"
   console.log(serverse)
   useEffect(() => {
     if(!serverID){

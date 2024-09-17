@@ -4,7 +4,7 @@ import './App.css'
 import WebSocketComponent from './WebSocketComponent';
 
 function App() {
-  const url = "http://192.168.1.3:3002/login"
+  const url = " https://mycustomsubdomain.loca.lt/login"
   const token =localStorage.getItem('user_token')
   useEffect(()=>{
     if(!token){
