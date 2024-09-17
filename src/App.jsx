@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import axios from 'axios'
 import './App.css'
 import WebSocketComponent from './WebSocketComponent';
@@ -32,8 +33,7 @@ function App() {
       :(
         <h1>Please Login</h1>
       ) 
-      
-  );
+    )      
 }
 
 export default App
